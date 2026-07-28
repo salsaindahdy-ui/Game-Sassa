@@ -1,43 +1,61 @@
-{
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <!-- Kode di bawah agar game pas di layar HP -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Game Klik Koin</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin-top: 50px;
+        }
+        #skor {
+            font-size: 50px;
+            font-weight: bold;
+            color: #ffaa00;
+            margin: 20px 0;
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 24px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        button:active {
+            transform: scale(0.95); /* Efek tombol ditekan */
+        }
+    </style>
+</head>
+<body>
 
-html {
-  overflow-y: auto;
-  overscroll-behavior: none;
-}
+    <h1>Kumpulkan Koin!</h1>
+    <p>Klik tombol di bawah sebanyak-banyaknya:</p>
+    
+    <div id="skor">0</div>
+    
+    <button onclick="tambahSkor()">KLIK SAYA!</button>
 
-body {
-  overscroll-behavior: none;
-  touch-action: manipulation;
-}
+    <script>
+        // Ini adalah logika gamenya (JavaScript)
+        let nilaiSkor = 0;
 
-/* Prevent pull-to-refresh on mobile */
-html, body {
-  overscroll-behavior-y: contain;
-}
+        function tambahSkor() {
+            nilaiSkor = nilaiSkor + 1;
+            document.getElementById("skor").innerText = nilaiSkor;
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+            // Beri kejutan kalau skor capai 20
+            if (nilaiSkor === 20) {
+                alert("Wah hebat! Kamu sudah mengumpulkan 20 Koin!");
+            }
+        }
+    </script>
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-/* Canvas touch handling */
-canvas {
-  touch-action: none;
-}
+</body>
+</html>
